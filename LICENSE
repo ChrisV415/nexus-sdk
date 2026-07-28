@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 ChrisV415
+Copyright (c) 2026 Chang Xiong / CharacterOS
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,21 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+NOTE ON CHARACTEROS CLOUD SERVICES
+
+This SDK (the Nexus Protocol adapter interface) is open source under the MIT
+license. The following CharacterOS components are proprietary and NOT included
+in this SDK:
+
+- Safety Harness (deterministic safety enforcement layer)
+- Cultural Calibration Engine (regional expression profiles)
+- Daily Alignment Agent (multi-provider LLM ensemble)
+- NBC Protocol enforcement (Never Break Character)
+- Jurisdiction-aware Consent Management
+- AI Literacy Report generation
+
+These services are available via the CharacterOS Cloud API at
+https://characteros.cloud. Patent pending.

@@ -1,0 +1,57 @@
+{
+  "name": "@characteros/nexus-sdk",
+  "version": "1.0.0",
+  "description": "Open-source Nexus Protocol adapter interface for CharacterOS — build hardware adapters for any social robot platform",
+  "author": "Chang Xiong <chancev651@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://characteros.cloud",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChrisV415/nexus-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ChrisV415/nexus-sdk/issues"
+  },
+  "keywords": [
+    "robotics",
+    "social-robot",
+    "character-ai",
+    "nexus-protocol",
+    "humanoid",
+    "face-robot",
+    "expression",
+    "adapter",
+    "characteros",
+    "middleware"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "lint": "eslint src --ext .ts",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/node": "^20.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
