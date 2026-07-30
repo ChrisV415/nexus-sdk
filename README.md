@@ -206,9 +206,13 @@ const jepaCommand = translateToJEPA(cosCommand);
 The Nexus Protocol SDK is the open-source adapter layer. The full CharacterOS platform provides:
 
 - **Safety Harness** — deterministic, jailbreak-resistant safety enforcement (patent pending)
+- **Dual-Model Verification** — second independent LLM reviews every response after the deterministic harness passes; two-layer hybrid architecture with automated outage detection (patent pending)
 - **Cultural Calibration** — 6 regional expression profiles with per-dimension modifiers
 - **Daily Alignment Agent** — nightly character improvement via 9-provider LLM ensemble
 - **NBC Protocol** — Never Break Character enforcement across all interactions
+- **HIPAA PHI Redaction Pipeline** — automatic blanket-redaction of patient identifiers in consent logs for healthcare deployments; forces data-retention off; separate HIPAA audit event type (patent pending)
+- **Care Alert State Machine** — detects vulnerable-user patterns in real time, fires operator alerts with TTL auto-expiry and clean-pass auto-clear; operator-scoped across all units (patent pending)
+- **Privacy-First Mode** — operator toggle that suppresses all training data collection for a character, with audit-flagged confirmation on every interaction
 - **AI Literacy Reports** — one-click compliance documentation for enterprise procurement
 
 Get access at **[characteros.cloud](https://characteros.cloud)**
@@ -227,6 +231,6 @@ See [examples/my-robot-adapter.ts](examples/my-robot-adapter.ts) for a complete 
 
 MIT — see [LICENSE](LICENSE).
 
-The CharacterOS Safety Harness, Cultural Calibration Engine, Daily Alignment Agent, NBC Protocol, and AI Literacy Report are proprietary CharacterOS Cloud services and are not included in this SDK.
+The CharacterOS Safety Harness, Dual-Model Verification, Cultural Calibration Engine, Daily Alignment Agent, NBC Protocol, HIPAA PHI Redaction Pipeline, Care Alert State Machine, Privacy-First Mode, and AI Literacy Report are proprietary CharacterOS Cloud services and are not included in this SDK.
 
 *Patent pending — CharacterOS Provisional Patent Application, USPTO, July 2026.*
