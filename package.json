@@ -1,6 +1,6 @@
 {
   "name": "@characteros/nexus-sdk",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Open-source Nexus Protocol adapter interface for CharacterOS — build hardware adapters for any social robot platform",
   "author": "Chang Xiong <chancev651@gmail.com>",
   "license": "MIT",

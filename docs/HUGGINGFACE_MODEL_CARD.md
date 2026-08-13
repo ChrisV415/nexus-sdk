@@ -33,8 +33,11 @@ platform connect to CharacterOS.
 **Open source (this repo):** the adapter interface, expression vector format,
 `computeActuators()` function, and JEPA joint map.
 
-**Proprietary cloud services:** Safety Harness, Cultural Calibration Engine,
-Daily Alignment Agent, NBC Protocol, AI Literacy Reports.
+**Proprietary cloud services:** Safety Harness, Dual-Model Verification,
+Cultural Calibration Engine, Daily Alignment Agent, NBC Protocol, HIPAA PHI
+Redaction Pipeline, Care Alert State Machine, Memorial Character Protocol,
+RoboSafe Certification, Privacy-First Mode, Behavioral Data Network,
+Compliance Radar, AI Literacy Reports.
 
 ---
 
@@ -120,6 +123,18 @@ Full map available in `src/core/jepaMaps.ts`.
 | gentle_smile | 0.10 | 0.60 | 0.52 | 0.25 | 0.45 |
 | raised_brows | 0.22 | 0.50 | 0.35 | 0.88 | 0.78 |
 | neutral | 0.10 | 0.40 | 0.25 | 0.28 | 0.40 |
+
+---
+
+## Registered Vendor IDs
+
+Pass one of these as the `vendor` string when registering your adapter:
+
+`mock` · `screen` · `aheadform` · `engineered_arts` · `unitree` · `jepa` ·
+`ros2` · `nexus` · `agibot` · `ubtechU1` · `leju-kuavo` · `viam` ·
+`webrtc_unified` · `elliq` · `double` · `synthesia` · `neo_1x` ·
+`digit_agility` · `spirit_ai` · `cosmos3` · `humanoid_london` · `neura` ·
+`wandercraft` · `uma`
 
 ---
 

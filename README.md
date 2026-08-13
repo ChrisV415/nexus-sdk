@@ -121,6 +121,44 @@ export class MyRobotAdapter extends RobotAdapter {
 
 ---
 
+## Registered Adapter Vendor IDs
+
+When CharacterOS deploys a character to a robot unit, it identifies the hardware
+platform by a `vendor` string. The table below lists every vendor ID currently
+registered in the CharacterOS platform. Pass your `vendor` string in the
+`vendor` field of your deployment configuration.
+
+| Vendor ID | Platform |
+|-----------|----------|
+| `mock` | Software mock — 26 DOF simulated (development / CI) |
+| `screen` | Screen / browser avatar (no physical hardware) |
+| `aheadform` | AHeadForm custom animatronic |
+| `engineered_arts` | Engineered Arts — Mesmer / Ameca series |
+| `unitree` | Unitree Robotics — H1, G1 |
+| `jepa` | JEPA world-model platforms (AMI Labs and compatible) |
+| `ros2` | Any ROS 2 robot via rosbridge WebSocket |
+| `nexus` | Nexus Embodied |
+| `agibot` | AgiBot |
+| `ubtechU1` | UBTECH Walker U1 |
+| `leju-kuavo` | Leju Kuavo |
+| `viam` | Viam — any Viam-connected robot |
+| `webrtc_unified` | WebRTC Unified — browser stream / digital human |
+| `elliq` | ElliQ (elder care companion) |
+| `double` | Double Robotics — telepresence |
+| `synthesia` | Synthesia — digital human video |
+| `neo_1x` | 1X Technologies Neo |
+| `digit_agility` | Agility Robotics Digit |
+| `spirit_ai` | Spirit AI |
+| `cosmos3` | NVIDIA Cosmos 3 |
+| `humanoid_london` | Humanoid London |
+| `neura` | Neura Robotics |
+| `wandercraft` | Wandercraft |
+| `uma` | UMA (Universal Mobile Avatar) |
+
+If your platform is not listed, use `mock` during development and open a PR to add your adapter to the registry.
+
+---
+
 ## Actuator Reference
 
 The Nexus Protocol uses 26 standardized actuator identifiers. All values are normalized floats in `[0.0, 1.0]`.
@@ -210,9 +248,13 @@ The Nexus Protocol SDK is the open-source adapter layer. The full CharacterOS pl
 - **Cultural Calibration** — 6 regional expression profiles with per-dimension modifiers
 - **Daily Alignment Agent** — nightly character improvement via 9-provider LLM ensemble
 - **NBC Protocol** — Never Break Character enforcement across all interactions
-- **HIPAA PHI Redaction Pipeline** — automatic blanket-redaction of patient identifiers in consent logs for healthcare deployments; forces data-retention off; separate HIPAA audit event type (patent pending)
+- **HIPAA PHI Redaction Pipeline** — automatic blanket-redaction of patient identifiers in consent logs for healthcare deployments (patent pending)
 - **Care Alert State Machine** — detects vulnerable-user patterns in real time, fires operator alerts with TTL auto-expiry and clean-pass auto-clear; operator-scoped across all units (patent pending)
-- **Privacy-First Mode** — operator toggle that suppresses all training data collection for a character, with audit-flagged confirmation on every interaction
+- **Memorial Character Protocol** — dedicated mode for post-loss companion characters with grief-spiral detection and escalated care-alert routing (patent pending)
+- **RoboSafe Certification** — three-level KPI certification (L1/L2/L3) with automated 30-scenario simulation corpus and public certification badge
+- **Privacy-First Mode** — operator toggle that suppresses all training data collection for a character
+- **Behavioral Data Network** — opt-in interaction data monetization pipeline with 70/30 operator revenue share
+- **Compliance Radar** — continuous regulatory monitoring with jurisdiction-specific alert routing
 - **AI Literacy Reports** — one-click compliance documentation for enterprise procurement
 
 Get access at **[characteros.cloud](https://characteros.cloud)**
@@ -231,6 +273,6 @@ See [examples/my-robot-adapter.ts](examples/my-robot-adapter.ts) for a complete 
 
 MIT — see [LICENSE](LICENSE).
 
-The CharacterOS Safety Harness, Dual-Model Verification, Cultural Calibration Engine, Daily Alignment Agent, NBC Protocol, HIPAA PHI Redaction Pipeline, Care Alert State Machine, Privacy-First Mode, and AI Literacy Report are proprietary CharacterOS Cloud services and are not included in this SDK.
+The CharacterOS Safety Harness, Dual-Model Verification, Cultural Calibration Engine, Daily Alignment Agent, NBC Protocol, HIPAA PHI Redaction Pipeline, Care Alert State Machine, Memorial Character Protocol, RoboSafe Certification, Privacy-First Mode, Behavioral Data Network, Compliance Radar, and AI Literacy Report are proprietary CharacterOS Cloud services and are not included in this SDK.
 
 *Patent pending — CharacterOS Provisional Patent Application, USPTO, July 2026.*

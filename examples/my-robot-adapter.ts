@@ -169,6 +169,13 @@ export class MyRobotAdapter extends RobotAdapter {
         body: JSON.stringify({ commands }),
       });
 
+      if (!response.ok) {
+        return {
+          ok: false,
+          latencyMs: Date.now() - start,
+        };
+      }
+
       const result: MyRobotResponse = await response.json();
       const latencyMs = Date.now() - start;
 
