@@ -1,6 +1,6 @@
 {
   "name": "@characteros/nexus-sdk",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Open-source Nexus Protocol adapter interface for CharacterOS — build hardware adapters for any social robot platform",
   "author": "Chang Xiong <chancev651@gmail.com>",
   "license": "MIT",
@@ -30,9 +30,9 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     }
   },
   "files": [
@@ -41,7 +41,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --clean",
     "dev": "tsc --watch",
     "test": "node --experimental-vm-modules node_modules/.bin/jest",
     "lint": "eslint src --ext .ts",
@@ -49,7 +49,8 @@
   },
   "devDependencies": {
     "typescript": "^5.4.0",
-    "@types/node": "^20.0.0"
+    "@types/node": "^20.0.0",
+    "tsup": "^8.3.0"
   },
   "engines": {
     "node": ">=18.0.0"

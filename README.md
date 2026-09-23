@@ -31,6 +31,14 @@ You build the adapter. CharacterOS handles the character.
 
 ---
 
+## v1.2.0: Robot Readiness integration types
+
+Version 1.2.0 adds strict, transport-neutral types for declared hardware capabilities, trusted telemetry, calibration evidence, degraded-capability policies, and server-authored decisions. The SDK remains an adapter layer: it contains no governance logic and no HTTP client.
+
+Use `RobotCapabilityMetadata` for declared hardware facts (force and speed include explicit units), `TrustedTelemetryInput` for the M2M payload, and `NEXUS_ENDPOINTS.trustedTelemetry` for the public path. Trust comes from the enrolled API key and server—not a caller verification flag. `SimulatedTelemetryInput` and `SimulationEnvelope` are explicitly non-gating and must never authorize a physical operation. Authoritative `DegradedCapabilityDecision` responses always include `evidenceIds` and `auditId`; `telemetryId` may be null. Simulation uses the separate `SimulatedDegradedCapabilityDecision` shape with `simulation: true` and `gating: false`. Calibration provenance and decision identifiers are server-authored.
+
+---
+
 ## Installation
 
 ```bash

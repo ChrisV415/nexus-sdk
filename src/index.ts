@@ -4,8 +4,8 @@
  * The open-source Nexus Protocol adapter interface for CharacterOS.
  *
  * Build a hardware adapter for any robot platform and connect it
- * to CharacterOS character middleware — Safety Harness, cultural
- * calibration, NBC Protocol, and Daily Alignment Agent included.
+ * to CharacterOS character middleware. Governance services remain
+ * proprietary CharacterOS Cloud services and are not included here.
  *
  * @see https://characteros.cloud/docs/nexus-protocol
  * @see https://github.com/CharacterOS/nexus-sdk
@@ -38,4 +38,18 @@ export { JEPA_JOINT_MAP, JEPA_REVERSE_MAP, translateToJEPA } from "./core/jepaMa
 export type {
   ExpressionVector,
   JEPAJointMap,
+  CapabilityStatusMap,
+  RobotCapabilityMetadata,
+  TrustedTelemetryInput,
+  SimulatedTelemetryInput,
+  SimulationEnvelope,
+  CalibrationEvidenceResult,
+  CalibrationEvidenceInput,
+  DegradedCapabilityPolicyInput,
+  DegradedCapabilityDecisionKind,
+  DegradedCapabilityDecision,
+  SimulatedDegradedCapabilityDecision,
 } from "./types/index.js";
+
+/** Public endpoint paths; this SDK does not ship an HTTP client. */
+export const NEXUS_ENDPOINTS = { trustedTelemetry: "/v1/robot-safety/telemetry" } as const;

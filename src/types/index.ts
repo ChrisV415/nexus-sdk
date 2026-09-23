@@ -84,3 +84,104 @@ export interface ExpressionVector {
 export interface JEPAJointMap {
   [actuatorKey: string]: string;
 }
+
+/** Values reported by an adapter for named robot capabilities. */
+export type CapabilityStatusMap = Record<string, boolean>;
+
+/**
+ * Hardware capabilities declared by an adapter or manufacturer.
+ * Force and speed are declarations, not measurements; units are explicit.
+ */
+export interface RobotCapabilityMetadata {
+  manufacturer: string;
+  model: string;
+  adapter: string;
+  firmware: string;
+  degreesOfFreedom: number;
+  endEffectors: string[];
+  sensorModalities: string[];
+  maxDeclaredForce: number;
+  maxDeclaredForceUnit: string;
+  maxDeclaredSpeed: number;
+  maxDeclaredSpeedUnit: string;
+  emergencyStopSupported: boolean;
+  humanProximityRestrictions: string[];
+  offlineCapability: boolean;
+  fallbackModes: string[];
+  calibrationRequirements: string[];
+  provenance: "declared";
+  version?: string;
+  digest?: string;
+}
+
+/**
+ * Trusted M2M telemetry. Trust comes from the enrolled API key and server,
+ * never a caller verification flag or timestamp. Optional IDs are consistency
+ * checks only.
+ */
+export interface TrustedTelemetryInput {
+  profileId: string;
+  characterId?: string;
+  deploymentId?: string;
+  unitId?: string;
+  capabilities: CapabilityStatusMap;
+  fallbackMode?: string | null;
+}
+
+/** Non-gating telemetry for development and preview flows. */
+export interface SimulatedTelemetryInput {
+  profileId: string;
+  capabilities: CapabilityStatusMap;
+  fallbackMode?: string | null;
+}
+
+/** Envelope used when submitting non-gating simulated telemetry. */
+export interface SimulationEnvelope {
+  telemetry: SimulatedTelemetryInput;
+}
+
+export type CalibrationEvidenceResult = "pass" | "fail";
+
+/** Submitted calibration evidence; authoritative provenance is server-authored. */
+export interface CalibrationEvidenceInput {
+  procedureId: string;
+  calibratedAt: string;
+  expiresAt: string;
+  result: CalibrationEvidenceResult;
+  evidenceReference: string;
+  technicianAttestation?: Record<string, unknown>;
+}
+
+/** Policy requirements for degraded-capability evaluation. */
+export interface DegradedCapabilityPolicyInput {
+  operation: string;
+  requiredCapabilities: string[];
+  requiredCalibrationProcedures: string[];
+  allowedFallbackModes: string[];
+  allowOperatorCalibration?: boolean;
+  telemetryMaxAgeSeconds: number;
+}
+
+export type DegradedCapabilityDecisionKind =
+  | "allow"
+  | "restrict"
+  | "review"
+  | "safe_stop";
+
+/** Exact server-authored response for an authoritative decision. */
+export interface DegradedCapabilityDecision {
+  decision: DegradedCapabilityDecisionKind;
+  reasons: string[];
+  evidenceIds: string[];
+  auditId: string;
+  telemetryId?: string | null;
+}
+
+/** Separate non-gating response shape returned by simulation flows. */
+export interface SimulatedDegradedCapabilityDecision {
+  simulation: true;
+  gating: false;
+  decision: DegradedCapabilityDecisionKind;
+  reasons: string[];
+  evidenceIds: string[];
+}
